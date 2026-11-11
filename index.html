@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>SpendWise</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">Expenses</a>
+                <a href="#" class="nav-item">Budget</a>
+                <a href="#" class="nav-item">Analytics</a>
+                <a href="#" class="nav-item">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h1>Dashboard Overview</h1>
+                    <p>Track Your Income And Expenses Interactively.</p>
+                </div>
+            </header>
+
+            <!-- Dynamic Feedback Alert -->
+            <div id="budget-alert" class="alert-box" style="margin: 20px 0; padding: 15px; border-radius: 8px; font-weight: 500; display: none;"></div>
+
+            <!-- Summary Cards Section -->
+            <section class="metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div class="card" style="background: var(--surface-color, #fff); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
+                    <h3>Total Budget</h3>
+                    <p id="display-budget" style="font-size: 24px; font-weight: 700; margin-top: 10px;">KES 0</p>
+                </div>
+                <div class="card" style="background: var(--surface-color, #fff); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
+                    <h3>Total Expenses</h3>
+                    <p id="display-total-expenses" style="font-size: 24px; font-weight: 700; margin-top: 10px;">KES 0</p>
+                </div>
+                <div class="card" style="background: var(--surface-color, #fff); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
+                    <h3>Remaining Balance</h3>
+                    <p id="display-balance" style="font-size: 24px; font-weight: 700; margin-top: 10px;">KES 0</p>
+                </div>
+            </section>
+
+            <!-- Interactive Form Section -->
+            <section class="form-section" style="background: var(--surface-color, #fff); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0); margin-bottom: 30px;">
+                <h3>Add New Expense</h3>
+                <form id="expense-form" style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                    <input type="text" id="expense-name" placeholder="Expense Name (e.g., Groceries)" required style="padding: 10px; flex: 2; border: 1px solid var(--border-color); border-radius: 6px;">
+                    <input type="number" id="expense-amount" placeholder="Amount (KES)" required style="padding: 10px; flex: 1; border: 1px solid var(--border-color); border-radius: 6px;">
+                    <button type="submit" style="padding: 10px 20px; background: var(--brand-color, #2563eb); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Add Expense</button>
+                </form>
+            </section>
+
+            <!-- Expense Records List Section -->
+            <section class="records-section" style="background: var(--surface-color, #fff); padding: 25px; border-radius: 8px; border: 1px solid var(--border-color, #e2e8f0);">
+                <h3>Recorded Expenses</h3>
+                <ul id="expense-list" style="list-style: none; margin-top: 15px; padding: 0;">
+                    <p style="color: var(--secondary-text-color);">No expenses recorded yet.</p>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>

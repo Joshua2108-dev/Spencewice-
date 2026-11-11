@@ -1,0 +1,233 @@
+/* ==========================================
+   1. CSS Custom Properties (Variables)
+   ========================================== */
+:root {
+    --brand-color: #2563eb;
+    --accent-color: #3b82f6;
+    --surface-color: #ffffff;
+    --background-color: #f8fafc;
+    --primary-text-color: #0f172a;
+    --secondary-text-color: #64748b;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme (Stretch Goal) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand-color: #3b82f6;
+        --accent-color: #60a5fa;
+        --surface-color: #1e293b;
+        --background-color: #0f172a;
+        --primary-text-color: #f8fafc;
+        --secondary-text-color: #94a3b8;
+        --border-color: #334155;
+        --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* ==========================================
+   2. Base Styles & Resets
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   3. Page Layout (CSS Grid)
+   ========================================== */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   4. Sidebar (Flexbox)
+   ========================================== */
+.sidebar {
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-brand h2 {
+    color: var(--brand-color);
+    font-size: 1.5rem;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--brand-color);
+    color: #ffffff;
+}
+
+/* ==========================================
+   5. Header (Flexbox)
+   ========================================== */
+.main-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-title h1 {
+    font-size: 1.75rem;
+    color: var(--primary-text-color);
+}
+
+.header-title p {
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+
+/* ==========================================
+   6. Cards Grid & Flexbox Content
+   ========================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    outline: none;
+    
+    /* 5. Micro-interactions (200ms transition) */
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card:hover, .card:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--accent-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    color: var(--primary-text-color);
+}
+
+.card-badge {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.card-badge.optional {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.card-badge.goal {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.card-body .amount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin-bottom: 0.25rem;
+}
+
+.card-body .budget-limit {
+    font-size: 0.875rem;
+    color: var(--secondary-text-color);
+}
+
+/* ==========================================
+   7. Responsiveness (Media Query)
+   ========================================== */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .nav-item {
+        white-space: nowrap;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
