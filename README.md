@@ -1,26 +1,28 @@
-# SpendWise - Interactive Budgeting Dashboard
+# budgetyourexpenses - Financial Dashboard
 
-## Overview
-SpendWise is an interactive web application designed to help users track monthly budgets, log expenses dynamically, and monitor financial health with real-time DOM updates and status warnings.
+## Project Description
+ Budget Your Expenses is a responsive web-based financial dashboard designed to help users track expenses, manage budgets, and visualize financial data interactively. Built with a focus on modern CSS layouts and dynamic client-side logic.
 
-## Improvements Made This Week
-- Transformed the static application into an interactive platform driven by user events.
-- Replaced basic console output with live DOM element rendering.
-- Implemented arrays and loops to store and iterate over multiple expense records dynamically.
-- Added conditional decision-making logic to provide instant financial alerts based on remaining balances.
+## Technologies Used
+- HTML5 (Semantic markup)
+- CSS3 (CSS Grid, Flexbox, Custom Properties / CSS Variables)
+- JavaScript (DOM manipulation, interactive data handling)
+- Git & GitHub (Version control)
+- Netlify (Cloud hosting & continuous deployment)
 
-## How Conditionals Are Used
-Conditional statements (`if...else if...else`) are used inside `evaluateBudgetStatus()` to analyze whether the user's remaining balance is negative (over budget), running low (<20% remaining), or healthy (surplus), changing alert box styling and messages accordingly.
+## GitHub Repository Information
+- **Repository URL:** [https://github.com/Joshua2108-dev/Budget-Your-Expenses-.git](https://github.com/Joshua2108-dev/Budget-Your-Expenses-.git)
 
-## How Arrays Are Used to Store Data
-An array of objects (`expenses`) is initialized to store multiple expense records, where each record contains property keys for `name` and `amount`. This allows scalable record management.
+## Live Netlify Website URL
+- **Live Site:** [https://budgetyourexpenses.netlify.app/](https://budgetyourexpenses.netlify.app/)
 
-## How the DOM is Updated
-The application uses DOM methods (`document.getElementById`, `document.createElement`, `innerHTML`, and text content manipulation) to update summary metrics and inject newly added expenses directly into the webpage without reloading.
+## Deployment Process Summary
+The project was initialized locally using Git version control and pushed to a public GitHub repository. The repository was then imported into Netlify, which automatically linked to the `main` branch. Netlify builds and serves the static frontend assets instantly upon every push to GitHub.
 
-## How User Interactions Are Handled Through Events
-An `addEventListener` is attached to the expense form submission (`submit`), which intercepts default form reloads, retrieves user inputs, updates the array state, and re-renders the dashboard UI.
+## Challenges Encountered During Deployment
+- Ensuring relative file paths for stylesheets and JavaScript files resolved correctly in the production build environment.
+- Managing responsive breakpoints across mobile and desktop viewports using CSS Grid and Flexbox.
 
-## Challenges Encountered and How They Were Resolved
-- **Challenge:** Preventing page reloads from clearing dynamically added inputs.
-- **Resolution:** Used `event.preventDefault()` inside the event listener function to securely capture form inputs and update the array state seamlessly.
+## Lessons Learned
+- Learned how to set up continuous deployment pipelines linking GitHub commits to Netlify cloud builds.
+- Gained deeper practical experience in structuring responsive web applications and maintaining clean project documentation.
