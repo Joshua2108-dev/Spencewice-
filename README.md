@@ -11,10 +11,9 @@
 - Netlify (Cloud hosting & continuous deployment)
 
 ## GitHub Repository Information
-- **Repository URL:** [https://github.com/Joshua2108-dev/Budget-Your-Expenses-.git](https://github.com/Joshua2108-dev/Budget-Your-Expenses-.git)
-
+https://github.com/Joshua2108-dev/Spencewice-
 ## Live Netlify Website URL
-https://budgetyourexpenses.netlify.app
+https://budgetyourmoney.netlify.app
 
 ## Deployment Process Summary
 The project was initialized locally using Git version control and pushed to a public GitHub repository. The repository was then imported into Netlify, which automatically linked to the `main` branch. Netlify builds and serves the static frontend assets instantly upon every push to GitHub.
