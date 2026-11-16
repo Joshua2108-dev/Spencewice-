@@ -75,7 +75,7 @@ function updateDashboard() {
 
     // Handle empty state or render expense list items using a loop
     if (expenses.length === 0) {
-        expenseList.innerHTML = `<p style="color: var(--secondary-text-color);">No expenses recorded yet.</p>`;
+        expenseList.innerHTML = `<li style="color: var(--secondary-text-color);">No expenses recorded yet.</li>`;
     } else {
         expenses.forEach((item, index) => {
             const li = document.createElement("li");
@@ -83,14 +83,16 @@ function updateDashboard() {
             li.style.justifyContent = "space-between";
             li.style.alignItems = "center";
             li.style.padding = "12px";
-            li.style.marginbottom = "8px";
+            li.style.marginBottom = "8px";
             li.style.borderBottom = "1px solid var(--border-color, #e2e8f0)";
             
             li.innerHTML = `
                 <span><strong>${item.name}</strong></span>
                 <span style="color: var(--brand-color); font-weight: 600;">KES ${item.amount.toLocaleString()}</span>
             `;
-            expenseList.appendChild(li);
+            const emptyMessage = document.createElement("li");
+emptyMessage.textContent = "No expenses added yet.";
+expenseList.appendChild(emptyMessage);;
         });
     }
 
@@ -109,7 +111,7 @@ expenseForm.addEventListener("submit", function(event) {
     let amount = parseFloat(expenseAmountInput.value);
 
     if (name && !isNaN(amount) && amount > 0) {
-        // Push new record object into the expenses array
+        // Push new record object into the expenses arraygit 
         expenses.push({ name: name, amount: amount });
 
         // Reset input fields
