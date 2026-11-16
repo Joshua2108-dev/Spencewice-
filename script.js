@@ -77,23 +77,22 @@ function updateDashboard() {
     if (expenses.length === 0) {
         expenseList.innerHTML = `<li style="color: var(--secondary-text-color);">No expenses recorded yet.</li>`;
     } else {
-        expenses.forEach((item, index) => {
-            const li = document.createElement("li");
-            li.style.display = "flex";
-            li.style.justifyContent = "space-between";
-            li.style.alignItems = "center";
-            li.style.padding = "12px";
-            li.style.marginBottom = "8px";
-            li.style.borderBottom = "1px solid var(--border-color, #e2e8f0)";
-            
-            li.innerHTML = `
-                <span><strong>${item.name}</strong></span>
-                <span style="color: var(--brand-color); font-weight: 600;">KES ${item.amount.toLocaleString()}</span>
-            `;
-            const emptyMessage = document.createElement("li");
-emptyMessage.textContent = "No expenses added yet.";
-expenseList.appendChild(emptyMessage);;
-        });
+       expenses.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.alignItems = "center";
+    li.style.padding = "12px";
+    li.style.marginBottom = "8px"; // Fixed camelCase typo
+    li.style.borderBottom = "1px solid var(--border-color, #e2e8f0)";
+
+    li.innerHTML = `
+        <span><strong>${item.name}</strong></span>
+        <span style="color: var(--brand-color); font-weight: 600;">KES ${item.amount.toLocaleString()}</span>
+    `;
+    expenseList.appendChild(li);
+});
+
     }
 
     // Trigger Decision Making Conditionals
